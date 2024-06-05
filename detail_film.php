@@ -10,25 +10,32 @@
             text-align: center;
             background-color: black;
             color: white;
+            background-color: #000022;
+        }
+
+
+
+        h1,
+        h2 {
+            text-align: center;
         }
 
         table {
+            width: 50%;
             border-collapse: collapse;
-            width: 25%;
             margin: 20px auto;
-            background-color: grey;
+            background-color: #1e1e2e;
         }
 
         th,
         td {
-            border: 1px solid #dddddd;
+            padding: 10px;
+            border: 1px solid #000033;
             text-align: left;
-            padding: 8px;
         }
 
         th {
-            background-color: grey;
-            text-align: center;
+            background-color: #1e1e2e;
         }
 
         .summary {
