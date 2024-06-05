@@ -71,12 +71,21 @@
                     }
 
                     try {
-                        $sql = "SELECT title, rating FROM series";
+                        $sql = "SELECT id, title, rating FROM series ORDER BY rating";
                         $stmt = $conn->query($sql);
 
                         if ($stmt->rowCount() > 0) {
                             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                echo "<tr><td>" . htmlspecialchars($row["title"]) . "</td><td>" . htmlspecialchars($row["rating"]) . "</td></tr>";
+                                echo "<tr>
+                                <td>
+                                    <a href='detail_serie.php?id=" . htmlspecialchars($row["id"]) . "'>"
+                                . htmlspecialchars($row["title"]) .
+                                    "</a>
+                                </td>
+                                <td>"
+                                    . htmlspecialchars($row["rating"]) .
+                                    "</td>
+                              </tr>";
                             }
                         } else {
                             echo "<tr><td colspan='2'>Geen series gevonden</td></tr>";
@@ -101,12 +110,21 @@
                 <tbody>
                     <?php
                     try {
-                        $sql = "SELECT id, titel, duur FROM films";
+                        $sql = "SELECT id, titel, duur FROM films ORDER BY duur";
                         $stmt = $conn->query($sql);
 
                         if ($stmt->rowCount() > 0) {
                             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                echo "<tr><td><a href='detail_film.php?id=" . htmlspecialchars($row["id"]) . "'>" . htmlspecialchars($row["titel"]) . "</a></td><td>" . htmlspecialchars($row["duur"]) . " min</td></tr>";
+                                echo "<tr>
+        <td>
+            <a href='detail_film.php?id=" . htmlspecialchars($row["id"]) . "'>"
+                                . htmlspecialchars($row["titel"]) .
+                                    "</a>
+        </td>
+        <td>"
+                                    . htmlspecialchars($row["duur"]) . " min
+        </td>
+      </tr>";
                             }
                         } else {
                             echo "<tr><td colspan='2'>Geen films gevonden</td></tr>";
